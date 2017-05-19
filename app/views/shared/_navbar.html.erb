@@ -1,0 +1,28 @@
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <% if user_signed_in? %>
+              Signed in as: <strong><%= current_user.email %></strong> |
+              <a class="nav-link" <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %> </a>
+          <% else %>
+              <a class="nav-link" <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %><span class="sr-only">(current)</span></a>
+              <a class="nav-link" <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %><span class="sr-only">(current)</span></a>
+          <% end %>
+        </li>
+      </div>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

@@ -10,6 +10,7 @@ end
 group :development do
   gem 'sqlite3'
   gem 'web-console', '~> 2.0'
+  gem 'meta_request'
 end
 
 gem 'sass-rails', '~> 5.0'
@@ -19,6 +20,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap'
 gem 'figaro'
+gem 'bcrypt'
+gem 'bootstrap-sass', '~> 3.3.6'
 
 group :development, :test do
   gem 'byebug'
