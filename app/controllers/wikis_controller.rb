@@ -1,4 +1,5 @@
 class WikisController < ApplicationController
+
   def index
     @wikis = Wiki.all
   end
@@ -7,6 +8,7 @@ class WikisController < ApplicationController
   end
 
   def new
+    @wiki = Wiki.new
   end
 
   def edit

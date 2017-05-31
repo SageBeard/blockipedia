@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Wiki, type: :model do
-  let(:wiki) { wiki.create!(title: "New Wiki Title", body: "New Wiki Body") }
+  let(:wiki) { Wiki.create!(title: "My String", body: "New Wiki Body") }
 
 
   describe "attributes" do
