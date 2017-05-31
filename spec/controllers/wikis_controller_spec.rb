@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe WikisController, type: :controller do
   include Devise::Test::ControllerHelpers
 
-  let(:my_wiki) { wiki.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph) }
+  let(:my_wiki) { Wiki.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph) }
 
 
     describe "GET #index" do
@@ -24,7 +24,7 @@ RSpec.describe WikisController, type: :controller do
       get :new
       expect(response).to have_http_status(:success)
     end
-    
+
     it "renders the #new view" do
       get :new
       expect(response).to render_template :new
@@ -51,5 +51,4 @@ RSpec.describe WikisController, type: :controller do
       expect(response).to redirect_to Wiki.last
     end
   end
-
 end
