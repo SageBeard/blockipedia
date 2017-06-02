@@ -7,9 +7,9 @@ RSpec.describe WikisController, type: :controller do
 
 
     describe "GET #index" do
-      it "returns http success" do
+      it "redirects to '/users/sign_in'" do
         get :index
-        expect(response).to have_http_status(:success)
+        expect(response).to redirect_to '/users/sign_in'
       end
 
 
@@ -20,9 +20,9 @@ RSpec.describe WikisController, type: :controller do
   end
 
     describe "GET new" do
-    it "returns http success" do
+    it "redirects to '/wikis" do
       get :new
-      expect(response).to have_http_status(:success)
+      expect(response).to redirect_to '/wikis'
     end
 
     it "renders the #new view" do
