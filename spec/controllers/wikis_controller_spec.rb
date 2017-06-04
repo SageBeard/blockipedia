@@ -20,9 +20,9 @@ RSpec.describe WikisController, type: :controller do
   end
 
     describe "GET new" do
-    it "redirects to '/wikis" do
+    it "redirects to '/users/sign_in" do
       get :new
-      expect(response).to redirect_to '/wikis'
+      expect(response).to redirect_to '/users/sign_in'
     end
 
     it "renders the #new view" do
@@ -36,7 +36,7 @@ RSpec.describe WikisController, type: :controller do
     end
   end
 
-  describe "WIKI create" do
+  describe "POST create" do
     it "increases the number of Wiki by 1" do
       expect{wiki :create, wiki: {title: RandomData.random_sentence, body: RandomData.random_paragraph}}.to change(Wiki,:count).by(1)
     end
