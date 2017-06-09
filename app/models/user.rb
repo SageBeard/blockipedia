@@ -4,4 +4,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :wikis
   enum role: [:standard, :premium, :admin]
+
+  after_initialize :init
+    def init
+      self.role  ||= :standard          #will set the default value only if it's nil
+    end
 end
