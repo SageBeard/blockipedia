@@ -14,10 +14,10 @@
 
     def create
 
-    @wiki = Wiki.new
-    @wiki.title = params[:wiki][:title]
-    @wiki.body = params[:wiki][:body]
-    @wiki.user = current_user
+      @wiki = Wiki.new
+      @wiki.title = params[:wiki][:title]
+      @wiki.body = params[:wiki][:body]
+      @wiki.user = current_user
 
     if @wiki.save
 
