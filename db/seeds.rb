@@ -1,10 +1,15 @@
 require 'faker'
 
-5.times do
+member = User.create(
+  email:    'member@example.com',
+  password: 'helloworld'
+)
+
+1.times do
   Wiki.create(
     title: Faker::Name.unique.name,
     body: Faker::Company.bs,
-    user: Faker::Internet.email
+    user: member
     )
 end
 
