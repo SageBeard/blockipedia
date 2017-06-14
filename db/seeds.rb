@@ -5,7 +5,7 @@ member = User.create(
   password: 'helloworld'
 )
 
-1.times do
+6.times do
   Wiki.create(
     title: Faker::Name.unique.name,
     body: Faker::Company.bs,
@@ -15,4 +15,3 @@ end
 
 puts "Seed finished"
 puts "#{Wiki.count} wikis created"
-puts "#{Wiki.user} users created"
