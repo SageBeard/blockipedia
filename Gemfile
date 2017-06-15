@@ -19,10 +19,10 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'bootstrap'
-gem 'figaro'
+gem 'figaro', '1.0'
 gem 'bcrypt'
-# gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise-i18n'
+gem 'stripe'
 
 group :development, :test do
   gem 'byebug'

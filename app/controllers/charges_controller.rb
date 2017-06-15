@@ -31,7 +31,6 @@ class ChargesController < ApplicationController
     @stripe_btn_data = {
       key: "#{ Rails.configuration.stripe[:publishable_key] }",
       description: "BigMoney Membership - #{current_user}",
-      amount: Amount.default
     }
   end
 end
