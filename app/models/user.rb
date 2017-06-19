@@ -6,7 +6,11 @@ class User < ActiveRecord::Base
   enum role: [:standard, :premium, :admin]
 
   after_initialize :init
-    def init
-      self.role  ||= :standard          #will set the default value only if it's nil
-    end
+  def init
+    self.role  ||= :standard          #will set the default value only if it's nil
+  end
+
+  def downgrade_user
+    self.role = :standard
+  end
 end
