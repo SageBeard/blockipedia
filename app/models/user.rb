@@ -5,12 +5,9 @@ class User < ActiveRecord::Base
   has_many :wikis
   enum role: [:standard, :premium, :admin]
 
-  after_initialize :init
+  after_initialize :init, :if => :new_record?
+
   def init
     self.role  ||= :standard          #will set the default value only if it's nil
-  end
-
-  def downgrade_user
-    self.role = :standard
   end
 end

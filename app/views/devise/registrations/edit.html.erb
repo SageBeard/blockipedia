@@ -34,9 +34,12 @@
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
-<% end %>
 
-<h3>Downgrade my account</h3>
-<div class="form-group">
-  <%= f.select(:role, [['Standard', 'standard']])%> 
-</div>
+<p>Change My Membership Level</p>
+   <% if @user.premium? %>
+      <%= f.select(:role, [['Standard', 'Standard'], ['Premium', 'premium']]) %>
+  <% else %>
+    <%= f.select(:role, [['Standard', 'Standard']]) %>
+  <% end %>
+<%= link_to "Back", :back %>
+<% end %>
