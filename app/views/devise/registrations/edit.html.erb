@@ -31,15 +31,16 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
+<p>Change My Membership Level</p>
+   <% if @user.premium? %>
+      <%= f.select(:role, [['Standard', 'standard'], ['Premium', 'premium']]) %>
+  <% else %>
+    <%= f.select(:role, [['Standard', 'standard']]) %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
 
-<p>Change My Membership Level</p>
-   <% if @user.premium? %>
-      <%= f.select(:role, [['Standard', 'Standard'], ['Premium', 'premium']]) %>
-  <% else %>
-    <%= f.select(:role, [['Standard', 'Standard']]) %>
-  <% end %>
 <%= link_to "Back", :back %>
 <% end %>
