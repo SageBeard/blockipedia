@@ -9,7 +9,7 @@ RSpec.describe WikisController, type: :controller do
     describe "GET #index" do
       it "redirects to '/users/sign_in'" do
         get :index
-        expect(response).to redirect_to '/users/sign_in'
+        expect(response).to have_http_status(:success)
       end
 
 
