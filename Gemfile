@@ -24,6 +24,7 @@ gem 'figaro', '1.0'
 gem 'bcrypt'
 gem 'devise-i18n'
 gem 'stripe'
+gem 'redcarpet'
 
 group :development, :test do
   gem 'byebug'
