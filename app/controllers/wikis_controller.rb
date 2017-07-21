@@ -1,8 +1,8 @@
   class WikisController < ApplicationController
 
     def index
-      @wikis = Wiki.all.visible_to(current_user)
-    end
+       @wikis = Wiki.all
+     end
 
     def show
       @wiki = Wiki.find(params[:id])
@@ -13,7 +13,6 @@
     end
 
     def create
-
       @wiki = Wiki.new
       @wiki.title = params[:wiki][:title]
       @wiki.body = params[:wiki][:body]
