@@ -5,13 +5,3 @@
     <% end %>
   </div>
   <% end %>
-
-
-  <div class="col-md-8">
-      <% User.all.each do |user| %>
-      <div class="form-group">
-      <%= f.label :collaborator, class: 'checkbox' do %>
-      <%= f.collection_select(:user, :user_id, User.all, :id) %>
-      <% end %>
-    </div>
-  <% end %>

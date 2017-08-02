@@ -1,0 +1,9 @@
+  <div class="col-md-8">
+      <% User.all.each do |user| %>
+      <div class="form-group">
+            <%= f.label :collaborators, class: 'checkbox' do %>
+            <%= f.select (:user, :user_id, User.all, :id) %>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
