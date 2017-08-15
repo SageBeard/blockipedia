@@ -1,23 +1,7 @@
 class CollaboratorsController < ApplicationController
 
-    def new
-      @collaborator = Collaborator.new
-    end
-
-    def create
-        @collaborator = Collaborator.new
-        @collaborator.title = params[:wiki][:title]
-        @collaborator.user = current_user
-
-        if @collaborator.save
-          flash[:notice] = "Collaborator was saved."
-          redirect_to [@wiki]
-        else
-
-          flash.now[:alert] = "There was an error saving your collaborator. Please try again."
-          render :new
-        end
-    end
+  def new  
+  end
 
   def destroy
       @collaborator = collaborator.find(params[:id])

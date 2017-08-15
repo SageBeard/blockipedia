@@ -34,11 +34,19 @@
 
 
   def update
+
     @wiki = Wiki.find(params[:id])
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
     @wiki.user = current_user
     @wiki.private = params[:wiki][:private]
+
+    if params[:collaborator][:user] != ""
+      @collaborator = Collaborator.new
+      @collaborator.user = User.find_by(email: params[:collaborator][:user])
+      @collaborator.wiki = @wiki
+      @collaborator.save!
+    end
 
     if @wiki.save
       flash[:notice] = "Wiki was updated."

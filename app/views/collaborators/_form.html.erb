@@ -1,9 +1,17 @@
-  <div class="col-md-8">
-      <% User.all.each do |user| %>
-      <div class="form-group">
-            <%= f.label :collaborators, class: 'checkbox' do %>
-            <%= f.select (:user, :user_id, User.all, :id) %>
-      </div>
-      <% end %>
-    </div>
-  <% end %>
+<% if current_user.admin? || current_user.premium? %>
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="dropdown">
+      <ul>
+        <%= form_for([@collaborator, Collaborator.new]) do |f| %>
+          <div class="form-group">
+            <%= f.select :user, User.all.map { |u| u.email }, {:include_blank => true} %>
+            <%= f.submit "Add Collaborator" %>
+          </div>
+        <% end %>
+      </ul>
+    </ul>
+<% end %>
+
+
+  <!-- <div class="col-md-8">
+     -->
